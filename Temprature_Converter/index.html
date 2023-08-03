@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #e6b3db;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .result {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <form onsubmit="convertTemperature(event)">
+            <input type="number" id="celsiusInput" placeholder="Enter temperature in Celsius" step="any" required>
+            <input type="submit" value="Convert">
+        </form>
+        <div class="result">
+            <p id="resultOutput"></p>
+        </div>
+    </div>
+
+    <script>
+        function convertTemperature(event) {
+            event.preventDefault();
+            
+            var celsiusInput = document.getElementById('celsiusInput').value;
+            var fahrenheitOutput = (celsiusInput * 9/5) + 32;
+
+            document.getElementById('resultOutput').innerText = celsiusInput + "°C is equal to " + fahrenheitOutput.toFixed(2) + "°F";
+        }
+    </script>
+</body>
+</html>
